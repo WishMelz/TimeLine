@@ -16,7 +16,8 @@ router.post('/login', (req, res) => {
         return;
     }
     let key = md5(psd + config.keystr);
-    console.log(key);
+    // 这个打印就是密钥
+    // console.log(key);  
     conn.query('select * from users where `key` = ?', [key], (err, data) => {
         if (err) {
             res.json({
